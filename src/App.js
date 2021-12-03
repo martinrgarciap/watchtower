@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import LogIn from './pages/LogIn/LogIn';
 import Home from './pages/Home/Home';
+import Emergency from "./pages/Emergency/Emergency";
+import Forum from "./pages/Forum/Forum";
 import SignUp from './pages/SignUp/SignUp';
 import Footer from "./components/Footer/Footer";
 
