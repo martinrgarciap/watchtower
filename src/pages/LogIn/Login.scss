@@ -1,0 +1,106 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+.login{
+    display: flex;
+    justify-content: center;
+}
+
+.background-video{
+    position: fixed;
+    object-fit: cover;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+.login-form{
+    position: absolute;
+    background-color: $colour-primary-light-shades;
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    opacity: 0.95;
+    margin: 1rem;
+    margin-top: 8rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    @include tablet{
+        padding: 3rem;
+    }
+    &__header{
+        font-size: 1rem;
+        margin: 0;
+        color: $colour-primary-dark-shades;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        @include tablet{
+            font-size: 2rem;
+        }
+    }
+    &__label{
+        font-size: 0.75rem;
+        color: $colour-primary-dark-shades;
+        @include tablet{
+            font-size: 1rem;
+        }
+    }
+    &__username{
+        font-size: 0.6rem;
+        color: $colour-primary-dark-shades;
+        border-radius: 1rem;
+        border: none;
+        margin-bottom: 0.25rem;
+        @include tablet{
+            font-size: 0.8rem;
+        }
+    }
+    &__password{
+        font-size: 0.6rem;
+        color: $colour-primary-dark-shades;
+        border-radius: 1rem;
+        border: none;
+        margin-bottom: 1rem;
+        @include tablet{
+            font-size: 0.8rem;
+        }
+    }
+    &__submit-button{
+        background-color: $colour-primary-dark-shades;
+        color: $colour-primary-light-shades;
+        padding: 0.25rem;
+        border-radius: 1rem;
+        font-weight: 700;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        margin-bottom: 1rem;
+        font-size: 0.75rem;
+        @include tablet{
+            padding: 0.5;
+            font-size: 1rem;
+        }
+        &:hover{
+            background-color: $colour-primary-light-shades;
+            color: $colour-primary-dark-shades;
+        }
+    }
+    &__signup-button{
+        background-color: $colour-primary-dark-accent;
+        color: $colour-primary-light-shades;
+        padding: 0.25rem;
+        font-weight: 700;
+        border-radius: 1rem;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        font-size: 0.75rem;
+        @include tablet{
+            padding: 0.5;
+            font-size: 1rem;
+        }
+        &:hover{
+            background-color: $colour-primary-light-shades;
+            color: $colour-primary-dark-accent;
+        }
+    }
+}

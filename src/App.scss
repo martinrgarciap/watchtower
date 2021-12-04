@@ -1,0 +1,6 @@
+@use "./styles/partials/variables" as *;
+body{
+  height: 100%;
+  background: $colour-primary-dark-shades;
+  font-family: Noto;
+}
