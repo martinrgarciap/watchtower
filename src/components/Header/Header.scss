@@ -1,0 +1,15 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.header{
+    display: flex;
+    background-color: $colour-primary-dark-shades;
+    height: 8rem;
+    width: 100%;
+    justify-content: space-evenly;
+    &__logo{
+        height: 8rem;
+        width: 6rem;
+    }
+}

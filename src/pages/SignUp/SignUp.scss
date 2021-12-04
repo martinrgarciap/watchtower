@@ -1,11 +1,12 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
-.login{
+
+.signup{
     display: flex;
     justify-content: center;
 }
 
-.login-form{
+.signup-form{
     position: absolute;
     background-color: $colour-primary-light-shades;
     display: flex;

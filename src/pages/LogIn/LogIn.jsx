@@ -1,8 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import "./Login.scss";
 import axios from "axios";
-import backgroundVideo from "../../assets/background/firewatch.mp4"
-import backgroundImage from "../../assets/background/watchtowerImage.jpg"
+import backgroundVideo from "../../assets/background/firewatch.mp4";
+
+// import backgroundImage from "../../assets/background/watchtowerImage.jpg"
 
 const apiLink = "http://localhost:9000/api/user";
 
@@ -41,27 +43,25 @@ export default class LogIn extends Component {
                 type="text"
                 name="username"
                 placeholder="Username"
-                className="login-form__username"
+                className="login-form__input"
                 required
               />
               <label htmlFor="password" className="login-form__label">
                 Password
               </label>
               <input
-                type="text"
+                type="password"
                 name="password"
                 placeholder="Password"
-                className="login-form__password"
+                className="login-form__input"
                 required
               />
               <button type="submit" className="login-form__submit-button">
                 LOGIN
-                    </button>
-                    <Link to="./signup">
-                    </Link>
-              <button className="login-form__signup-button">
-                SIGN UP
               </button>
+              <Link className="login-form__signup-link" to="./signup">
+                <button className="login-form__signup-button">SIGN UP</button>
+              </Link>
             </form>
           </div>
         );

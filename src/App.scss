@@ -4,3 +4,12 @@ body{
   background: $colour-primary-dark-shades;
   font-family: Noto;
 }
+
+.background-video{
+    position: relative;
+    object-fit: cover;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+}
