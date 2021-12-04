@@ -5,11 +5,28 @@
 .header{
     display: flex;
     background-color: $colour-primary-dark-shades;
-    height: 8rem;
     width: 100%;
     justify-content: space-evenly;
     &__logo{
-        height: 8rem;
-        width: 6rem;
+        height: 4rem;
+        width: 4rem;
+    }
+    &__text{
+        margin: 0;
+    }
+    &__list{
+        display: flex;
+        list-style: none;
+        height: 100%;
+        margin: 0;
+        text-align: center;
+    }
+    &__list-item{
+        padding: 0 1rem;
+        height: 100%;
+        width: 100%;
+        &:hover{
+            background-color: $colour-primary-light-accent;
+        }
     }
 }
