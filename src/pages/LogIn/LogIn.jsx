@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
 import "./Login.scss";
 import axios from "axios";
@@ -8,9 +8,9 @@ import backgroundVideo from "../../assets/background/firewatch.mp4";
 
 const apiLink = "http://localhost:9000/api/user";
 
-export default class LogIn extends Component {
+function LogIn(props) {
 
-    handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         axios.post(`${apiLink}/login`,
@@ -18,23 +18,27 @@ export default class LogIn extends Component {
             username: e.target.username.value,
             password: e.target.password.value,
           })
-          .then((response) => console.log(response))
+          .then((response) => {
+            // console.log(response);
+            let token = response.data.token;
+            sessionStorage.setItem("authToken", token);
+            props.history.push("/");
+          })
             .catch((error) => console.log(error));
         // document.location.href = "/";
     }
 
-    render() {
-        return (
+    return (
           <div className="login">
             <video
               className="background-video"
-              autoplay="autoplay"
-              loop="true"
-              muted="true"
+              autoPlay="autoplay"
+              loop={true}
+              muted={true}
             >
               <source src={backgroundVideo} type="video/mp4" />
             </video>
-            <form onSubmit={this.handleSubmit} className="login-form">
+            <form onSubmit={handleSubmit} className="login-form">
               <h3 className="login-form__header">Login</h3>
               <label htmlFor="username" className="login-form__label">
                 Username
@@ -65,5 +69,6 @@ export default class LogIn extends Component {
             </form>
           </div>
         );
-    }
 }
+
+export default LogIn;

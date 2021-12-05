@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from "react-router-dom";
 import "./SignUp.scss";
 import axios from "axios";
@@ -6,8 +6,8 @@ import backgroundVideo from "../../assets/background/firewatch.mp4";
 
 const apiLink = "http://localhost:9000/api/user";
 
-export default class SignUp extends Component {
-  handleSubmit = (e) => {
+function SignUp(props) {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     axios
@@ -19,22 +19,24 @@ export default class SignUp extends Component {
         lastName: e.target.last.value,
         phoneNumber: e.target.phone.value,
       })
-      .then((response) => console.log(response))
+      .then((response) => {
+        // console.log(response);
+        props.history.push("/login");
+      })
       .catch((error) => console.log(error));
     // document.location.href = "/login";
   };
-  render() {
-    return (
+  return (
       <div className="signup">
         <video
           className="background-video"
-          autoplay="autoplay"
-          loop="true"
-          muted="true"
+          autoPlay="autoplay"
+          loop={true}
+          muted={true}
         >
           <source src={backgroundVideo} type="video/mp4" />
         </video>
-        <form onSubmit={this.handleSubmit} className="signup-form">
+        <form onSubmit={handleSubmit} className="signup-form">
           <h3 className="signup-form__header">SIGN UP</h3>
           <label htmlFor="first" className="signup-form__label">
             First Name
@@ -118,5 +120,6 @@ export default class SignUp extends Component {
         </form>
       </div>
     );
-  }
 }
+
+export default SignUp
