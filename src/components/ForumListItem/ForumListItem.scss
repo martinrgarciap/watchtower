@@ -2,9 +2,10 @@
 @use "../../styles/partials/mixins" as *;
 
 .forum-list{
-    display: flex;
-    justify-content: space-evenly;
-    border-radius: 5px;
+    background-color: $colour-primary-light-shades;
+    margin: 0 2rem 1rem 2rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
     &__content{
         width: 20%;
         text-align: center;
@@ -12,8 +13,37 @@
         padding: 0.75rem 0;
         border: 1px solid black;
         font-size: 1rem;
+        display: flex;  
+        justify-content: center;
+        align-content: center;
+        align-items: center;
     }
     &__buttons{
-        
+        border: 1px solid black;
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__like{
+        max-height: 2rem;
+    }
+    &__delete{
+        background-color: $colour-primary-light-accent;
+        color: $colour-primary-light-shades;
+        padding: 0.25rem;
+        border-radius: 1rem;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        font-size: 0.75rem;
+        @include tablet{
+            padding: 0.5rem;
+            font-size: 1rem;
+        }
+        &:hover{
+            background-color: $colour-primary-light-shades;
+            color: $colour-primary-light-accent;
+        }
     }
 }
+

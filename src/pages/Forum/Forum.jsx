@@ -33,47 +33,12 @@ export default class Forum extends Component {
     }
     }
     
+    
   render() {
       return (
         <>
-            <h3 className="forum-form__header">Forum</h3>
-            <h5>Create a Forum</h5>
-          <form onSubmit={this.handleSubmit} className="forum-form">
-            <label htmlFor="title" className="forum-form__label">
-              Title
-            </label>
-            <input
-              type="text"
-              name="title"
-              placeholder="Title"
-              className="forum-form__input"
-              required
-            />
-            <label htmlFor="description" className="forum-form__label">
-              Description
-            </label>
-            <input
-              type="text"
-              name="description"
-              placeholder="Description"
-              className="forum-form__input"
-              required
-            />
-            <button type="submit" className="forum-form__submit-button">
-              SUBMIT
-            </button>
-          </form>
-          <div className="forum">
-            <div className="forum-headers">
-              <p className="forum-headers__labels">Name</p>
-              <p className="forum-headers__labels">Description</p>
-              <p className="forum-headers__labels">Likes</p>
-              <p className="forum-headers__labels">Created On</p>
-              <p className="forum-headers__labels">Author</p>
-              <p className="forum-headers__labels">Delete</p>
-            </div>
+          <h3 className="forum-form__header">Forum</h3>
             <ForumList />
-          </div>
         </>
       );}
 }

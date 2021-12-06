@@ -11,18 +11,28 @@ function ForumListItem({ deleteForum, likeForum, forumId, forum }) {
         likeForum(forumId)
     }
     return (
-        <div className="forum-list">
-            <Link to={`/${forumId}`} className="forum-list__content">{forum.title}</Link>
-          <p className="forum-list__content">{forum.description}</p>
-            <p className="forum-list__content">{forum.likes.length}
-                <img src={likes} alt="Like button" className="forum-list__like" onClick={onLike} />
-            </p>
-          <p className="forum-list__content">{forum.createdAt}</p>
-            <p className="forum-list__content">{forum.createdBy}</p>
-            <div className="forum-list__buttons">
-                <button className="forum-list__delete" onClick={onClick}>Delete</button>
-            </div>
-      </div>
+      <>
+        <Link to={`/${forumId}`} className="forum-list__content">
+          {forum.title}
+        </Link>
+        <p className="forum-list__content">{forum.description}</p>
+        <p className="forum-list__content">
+          {forum.likes.length}
+          <img
+            src={likes}
+            alt="Like button"
+            className="forum-list__like"
+            onClick={onLike}
+          />
+        </p>
+        <p className="forum-list__content">{forum.createdAt}</p>
+        <p className="forum-list__content">{forum.createdBy}</p>
+        <div className="forum-list__buttons">
+          <button className="forum-list__delete" onClick={onClick}>
+            Delete
+          </button>
+        </div>
+      </>
     );
 }
 

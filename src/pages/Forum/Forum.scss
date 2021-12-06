@@ -3,35 +3,49 @@
 
 .forum-form{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    margin: 1rem;
-    background-color: $colour-primary-light-shades;
-    margin-top: 2rem;
+    margin: 2rem;
+    background-color: $colour-primary-dark-shades;
+    margin-top: 1rem;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     padding: 1rem 0;
+    border-radius: 5px;
     &__header{
         font-size: 1.5rem;
         margin: 0;
         color: $colour-primary-dark-shades;
         font-weight: 700;
-        margin-bottom: 1rem;
         text-align: center;
         margin-top: 1.5rem;
         @include tablet{
             font-size: 2rem;
         }
     }
+    &__subheader{
+        width: 100%;
+        font-size: 1rem;
+        margin: 0;
+        color: $colour-primary-light-accent;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-align: center;
+        @include tablet{
+            font-size: 1.5rem;
+        }
+    }
     &__label{
+        margin-right: 1rem;
         font-size: 0.75rem;
-        color: $colour-primary-dark-shades;
+        color: $colour-primary-light-accent;
         @include tablet{
             font-size: 1rem;
         }
     }
     &__input{
         font-size: 0.6rem;
-        color: $colour-primary-dark-shades;
+        color: $colour-primary-light-accent;
         border-radius: 1rem;
         border: none;
         margin-bottom: 0.25rem;
@@ -41,28 +55,27 @@
         }
     }
     &__submit-button{
-        background-color: $colour-primary-dark-shades;
+        background-color: $colour-primary-light-accent;
         color: $colour-primary-light-shades;
         padding: 0.25rem;
         border-radius: 1rem;
-        font-weight: 700;
         border: none;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         font-size: 0.75rem;
         @include tablet{
-            padding: 0.5;
+            padding: 0.5rem;
             font-size: 1rem;
         }
         &:hover{
             background-color: $colour-primary-light-shades;
-            color: $colour-primary-dark-shades;
+            color: $colour-primary-light-accent;
         }
     }
 }
 
 .forum{
     background-color: $colour-primary-light-shades;
-    margin: 1rem 2rem;
+    margin: 1rem 2rem 0 2rem;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
@@ -70,7 +83,7 @@
 .forum-headers{
     display: flex;
     justify-content: space-evenly;
-    background-color: $colour-primary-dark-accent;
+    background-color: $colour-primary-light-accent;
     border-radius: 5px;
     &__labels{
         width: 20%;

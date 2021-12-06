@@ -88,37 +88,106 @@ export default class ForumList extends Component {
   };
 
   handleSubmit = (e) => {
-    e.preventDefault();
-    axios
-      .post(`${apiLink}/`, {
-        title: e.target.title.value,
-        description: e.target.description.value,
-        createdBy: this.state.userInfo.username,
-      })
-      .then((response) => {
-        
-        this.setState({});
-      })
-      .catch((error) => console.log(error.response.data.message));
-  };
+    e.preventDefault()
+    let token = sessionStorage.getItem("authToken");
+
+    if (!!token) {
+      axios
+        .get(`${apiLinkUser}/current`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => {
+          console.log(res.data);
+          axios
+            .post(`${apiLink}/`, {
+              title: e.target.title.value,
+              description: e.target.description.value,
+              createdBy: res.data.username,
+            })
+            .then((result) => {
+              console.log(result);
+              axios
+                .get(`${apiLink}/`)
+                .then((result) => {
+                  console.log(result);
+                  this.setState({
+                    forums: result.data,
+                  });
+                })
+                .catch((error) => {
+                  console.log(error.data.message);
+                });
+            })
+            .catch((error) => {
+              console.log(error.data.message);
+            });
+        });
+    } else {
+      this.props.history.push("/login");
+    }
+  }
 
   render() {
     document.title = "Watchtower Forum";
     return (
-      <div className="forum-list">
-        {this.state.forums.map((forum) => {
-          return (
-            <div className="forum-list-item" key={forum._id}>
-              <ForumListItem
-                deleteForum={this.deleteForum}
-                likeForum={this.likeForum}
-                forumId={forum._id}
-                forum={forum}
-              />
-            </div>
-          );
-        })}
-      </div>
+      <>
+        <form onSubmit={this.handleSubmit} className="forum-form">
+          <h4 className="forum-form__subheader">Create a Forum</h4>
+          <div>
+            <label htmlFor="title" className="forum-form__label">
+              Title
+            </label>
+            <input
+              type="text"
+              name="title"
+              placeholder="Title"
+              className="forum-form__input"
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="description" className="forum-form__label">
+              Description
+            </label>
+            <input
+              type="text"
+              name="description"
+              placeholder="Description"
+              className="forum-form__input"
+              required
+            />
+          </div>
+          <button type="submit" className="forum-form__submit-button">
+            SUBMIT
+          </button>
+        </form>
+        <div className="forum">
+          <div className="forum-headers">
+            <p className="forum-headers__labels">Name</p>
+            <p className="forum-headers__labels">Description</p>
+            <p className="forum-headers__labels">Likes</p>
+            <p className="forum-headers__labels">Created On</p>
+            <p className="forum-headers__labels">Author</p>
+            <p className="forum-headers__labels">Delete</p>
+          </div>
+        </div>
+        <div className="forum-list">
+          {this.state.forums.map((forum) => {
+            return (
+              <div className="forum-list-item" key={forum._id}>
+                <ForumListItem
+                  deleteForum={this.deleteForum}
+                  likeForum={this.likeForum}
+                  forumId={forum._id}
+                  forum={forum}
+                />
+              </div>
+            );
+          })}
+        </div>
+      </>
     );
   }
 }
