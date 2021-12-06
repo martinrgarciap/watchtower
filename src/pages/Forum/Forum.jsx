@@ -8,8 +8,7 @@ const apiLink = "http://localhost:9000/api/user";
 export default class Forum extends Component {
   state = {
     isLoading: true,
-    userInfo: {},
-    forumList:[]
+    userInfo: {}
   };
 
   componentDidMount() {
