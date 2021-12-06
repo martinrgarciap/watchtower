@@ -24,7 +24,7 @@ function LogIn(props) {
             sessionStorage.setItem("authToken", token);
             props.history.push("/");
           })
-            .catch((error) => console.log(error));
+            .catch((error) => console.log(error.response.data.message));
         // document.location.href = "/";
     }
 

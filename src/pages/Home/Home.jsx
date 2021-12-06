@@ -26,7 +26,7 @@ class Home extends Component {
             userInfo: res.data,
             isLoading: false,
           });
-        });
+        })
     } else {
       this.props.history.push("/login");
     }
