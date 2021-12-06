@@ -15,6 +15,7 @@ function App() {
         <Header />
         <Switch>
           <Route path="/forum" exact component={Forum} />
+          {/* <Route path="/forum/:forumId" component={forumDetails} /> */}
           <Route path="/emergency" exact component={Emergency} />
           <Route path="/signup" component={SignUp} />
           <Route path="/login" component={LogIn} />

@@ -10,13 +10,21 @@ export default class Header extends Component {
             <img className="header__logo" src={logo} alt="Logo" />
             <ul className="header__list">
               <li className="header__list-item">
-                <Link to="/">HOME</Link>
+                <Link to="/" className="header__link">
+                  HOME
+                </Link>
               </li>
 
               <li className="header__list-item">
-                <Link to="/forum">FORUM</Link>
+                <Link to="/forum" className="header__link">
+                  FORUM
+                </Link>
               </li>
-                <li className="header__list-item"><Link to="/emergency">EMERGENCY</Link></li>
+              <li className="header__list-item">
+                <Link to="/emergency" className="header__link">
+                  EMERGENCY
+                </Link>
+              </li>
             </ul>
           </div>
         );

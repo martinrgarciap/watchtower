@@ -13,6 +13,7 @@ class Home extends Component {
   componentDidMount() {
     let token = sessionStorage.getItem("authToken");
 
+    console.log(token)
     if (!!token) {
       axios
         .get(`${apiLink}/current`, {

@@ -4,9 +4,10 @@
 
 .header{
     display: flex;
-    background-color: $colour-primary-dark-shades;
+    background-color: $colour-primary-main-brand;
     width: 100%;
     justify-content: space-evenly;
+    align-items: center;
     &__logo{
         height: 4rem;
         width: 4rem;
@@ -20,6 +21,11 @@
         height: 100%;
         margin: 0;
         text-align: center;
+    }
+    &__link{
+        text-decoration: none;
+        color: $colour-primary-light-shades;
+        height: 100%;
     }
     &__list-item{
         padding: 0 1rem;
