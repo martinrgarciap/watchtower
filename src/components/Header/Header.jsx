@@ -21,7 +21,7 @@ export default class Header extends Component {
                 </Link>
               </li>
               <li className="header__list-item">
-                <Link to="/emergency" className="header__link">
+                <Link to="/emergency" className="header__link header__link--important">
                   EMERGENCY
                 </Link>
               </li>
