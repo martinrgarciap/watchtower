@@ -1,0 +1,26 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.forum{
+    background-color: $colour-primary-light-shades;
+    margin: 1rem 2rem;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.forum-headers{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: $colour-primary-dark-accent;
+    border-radius: 5px;
+    &__labels{
+        width: 20%;
+        text-align: center;
+        height: 100%;
+        margin: 0;
+        padding: 0.75rem 0;
+        border: 1px solid black;
+        font-size: 1rem;
+    }
+}

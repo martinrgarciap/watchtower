@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from "axios";
 import "./Forum.scss"
+import ForumList from "../../components/ForumList/ForumList"
 
 const apiLink = "http://localhost:9000/api/user";
 
@@ -8,6 +9,7 @@ export default class Forum extends Component {
   state = {
     isLoading: true,
     userInfo: {},
+    forumList:[]
   };
 
   componentDidMount() {
@@ -41,7 +43,7 @@ export default class Forum extends Component {
             <p className="forum-headers__labels">Created On</p>
             <p className="forum-headers__labels">Author</p>
               </div>
-              
+        <ForumList />
         </div>
       );}
 }
