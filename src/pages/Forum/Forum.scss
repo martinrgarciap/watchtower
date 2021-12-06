@@ -1,6 +1,64 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
+.forum-form{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1rem;
+    background-color: $colour-primary-light-shades;
+    margin-top: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    padding: 1rem 0;
+    &__header{
+        font-size: 1.5rem;
+        margin: 0;
+        color: $colour-primary-dark-shades;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-align: center;
+        margin-top: 1.5rem;
+        @include tablet{
+            font-size: 2rem;
+        }
+    }
+    &__label{
+        font-size: 0.75rem;
+        color: $colour-primary-dark-shades;
+        @include tablet{
+            font-size: 1rem;
+        }
+    }
+    &__input{
+        font-size: 0.6rem;
+        color: $colour-primary-dark-shades;
+        border-radius: 1rem;
+        border: none;
+        margin-bottom: 0.25rem;
+        padding: 0.25rem;
+        @include tablet{
+            font-size: 0.8rem;
+        }
+    }
+    &__submit-button{
+        background-color: $colour-primary-dark-shades;
+        color: $colour-primary-light-shades;
+        padding: 0.25rem;
+        border-radius: 1rem;
+        font-weight: 700;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        font-size: 0.75rem;
+        @include tablet{
+            padding: 0.5;
+            font-size: 1rem;
+        }
+        &:hover{
+            background-color: $colour-primary-light-shades;
+            color: $colour-primary-dark-shades;
+        }
+    }
+}
 
 .forum{
     background-color: $colour-primary-light-shades;

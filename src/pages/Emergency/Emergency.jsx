@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 const apiLink = "http://localhost:9000/api/user";
+const apiLinkTwitter = "http://localhost:9000/api/twitter";
 
 export default class Emergency extends Component {
   state = {
@@ -30,7 +31,19 @@ export default class Emergency extends Component {
       this.props.history.push("/login");
     }
   }
+
+  onClick = () => {
+    let message = `${this.state.userInfo.firstName} ${this.state.userInfo.lastName} is has pressed the emergency button, please keep a look out and be safe`
+
+    axios
+      .post(`${apiLinkTwitter}/tweet`, {
+        tweet: message
+      })
+      .then((res) => {
+        console.log(res);
+      });
+  }
   render() {
-    return <div>Emergency</div>;
+    return <button onClick={this.onClick}>Press for Emergency</button>
   }
 }
