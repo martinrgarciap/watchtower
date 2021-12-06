@@ -42,7 +42,7 @@ class Home extends Component {
 
   render() {
     const { isLoading, userInfo } = this.state;
-    return !isLoading ? (
+    return isLoading ? (
       <Loading />
     ) : (
       <div className="dashboard">
