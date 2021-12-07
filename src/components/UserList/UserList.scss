@@ -14,7 +14,7 @@
 .user-card{
     position: relative;
     width: 25%;
-    height: 5rem;
+    height: 5vh;
     background: $colour-primary-light-accent;
     margin: 20px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
@@ -28,34 +28,48 @@
     -o-transition: all .2s ease-in;
     -webkit-transition: all .2s ease-in;
     transition: all .2s ease-in;
-    &__hidden{
-       position: absolute;
-	    bottom: 50px;
-	    display: flex; 
-        flex-direction: column;
-    }
-    &__hidden .user-card__content{
-        transform: translateY(40px);
-	    transition: 0.5s;
-	    opacity: 0;
-    }
-    &:hover .user-card__hidden .user-card__content{
-        transform: translateY(0px);
-	    opacity: 1;
-    }
-    &__content{
-        position: relative;
-        color: $colour-primary-light-shades;
-        transition: 0.5s;
-        }
+    font-size: 0.8rem;
     &:hover .user-card__content{
         transform: translateY(-20px);
     }
     &:hover .user-card__content--username{
         display: none;
     }
+    
+    &:hover .user-card__hidden .user-card__content{
+        transform: translateY(0px);
+	    opacity: 1;
+    }
+    &:hover .user-card__hidden{
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+    }
     &:hover{
-        height: 20rem;
+        height: 20vh;
         background: $color-primary-important;
+    }
+    &__hidden{
+        position: absolute;
+	    bottom: 2rem;
+	    display: none;
+        width: 100%;
+    }
+    &__hidden .user-card__content{
+        transform: translateY(20px);
+	    transition: 0.5s;
+	    opacity: 0;
+    }
+    &__content{
+        position: relative;
+        color: $colour-primary-light-shades;
+        transition: 0.5s;
+        text-align: center;
+        margin: 0;
+        }
+    &__content:nth-of-type(2n-1){
+        color: $colour-primary-dark-shades;
+        font-weight: 700;
+        font-size: 0.85rem;
     }
 }
