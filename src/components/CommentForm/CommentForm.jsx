@@ -1,4 +1,5 @@
 import React from 'react'
+import "./CommentForm.scss"
 
 function CommentForm(props) {
     const handleSubmit = (e) => {
@@ -7,32 +8,22 @@ function CommentForm(props) {
         // this.props.createComment(e,e.target.comment.value)
     }
     return (
-        <>
-            
+      <>
         <form onSubmit={handleSubmit} className="forum-details-form">
-            <h4 className="forum-details-form__subheader">
-            Create a comment
-            </h4>
-            <div>
-            <label htmlFor="title" className="forum-details-form__label">
-                Comment
-            </label>
+          <div className="forum-details-form__send">
             <input
-                type="text"
-                name="comment"
-                placeholder="Enter Comment"
-                className="forum-details-form__input"
-                required
+              type="text"
+              name="comment"
+              placeholder="Enter Comment"
+              className="forum-details-form__input"
+              required
             />
-            </div>
-            <button
-            type="submit"
-            className="forum-details-form__submit-button"
-            >
-            SUBMIT
+            <button type="submit" className="forum-details-form__submit-button">
+              SEND
             </button>
+          </div>
         </form>
-        </>
+      </>
     );
 }
 
