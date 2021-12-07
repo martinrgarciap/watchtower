@@ -58,7 +58,6 @@ export default class ForumDetails extends Component {
                     comments: result.data.comments,
                   });
                     e.target.reset();
-                    console.log(this.state.selectedForum)
                 })
                 .catch((error) => {
                   console.log(error.data.message);
@@ -71,7 +70,50 @@ export default class ForumDetails extends Component {
     } else {
       this.props.history.push("/login");
     }
-  };
+    };
+    
+    addLike = (commentId) => {
+        let token = sessionStorage.getItem("authToken");
+
+        if (!!token) {
+          axios
+            .get(`${apiLinkUser}/current`, {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            })
+            .then((res) => {
+                // console.log(res.data);
+              axios
+                .post(
+                  `${apiLink}/${this.state.selectedForum._id}/comment/${commentId}/like`,
+                  {
+                    createdBy: res.data.username,
+                  }
+                )
+                .then((result) => {
+                  console.log(result);
+                  axios
+                    .get(`${apiLink}/${this.state.selectedForum._id}`)
+                    .then((result) => {
+                      //   console.log(result);
+                      this.setState({
+                        selectedForum: result.data,
+                        comments: result.data.comments,
+                      });
+                    })
+                    .catch((error) => {
+                      console.log(error.data.message);
+                    });
+                })
+                .catch((error) => {
+                  console.log(error.data.message);
+                });
+            });
+        } else {
+          this.props.history.push("/login");
+        }
+    }
 
   render() {
     document.title = "Forum Details";
@@ -105,7 +147,7 @@ export default class ForumDetails extends Component {
           </h3>
         </div>
             <div className="forum-details-comments">
-            <CommentList comments={this.state.comments} />
+                <CommentList comments={this.state.comments} addLike={this.addLike}/>
           <CommentForm createComment={this.createComment} />
         </div>
       </>
