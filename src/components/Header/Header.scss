@@ -49,14 +49,15 @@
         border-radius: 1rem;
         border: none;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        font-size: 0.75rem;
+        font-size: 1rem;
+        font-weight: 700;
         @include tablet{
             padding: 0.25rem;
             font-size: 1rem;
         }
         &:hover{
             background-color: $colour-primary-light-shades;
-            color: $colour-primary-light-accent;
+            color: $colour-primary-dark-shades;
         }
     }
     
