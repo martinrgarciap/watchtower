@@ -38,7 +38,7 @@ export default class Forum extends Component {
       return (
         <>
           <h3 className="forum-form__header">Forum</h3>
-            <ForumList />
+          <ForumList userInfo={this.state.userInfo} />
         </>
       );}
 }

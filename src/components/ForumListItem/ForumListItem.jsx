@@ -1,12 +1,13 @@
 import React from 'react'
 import likes from "../../assets/icons/likes.png"
+import likesDisabled from "../../assets/icons/likes-disabled.png"
 import { Link } from "react-router-dom";
 import Modal from "@mui/material/Modal";
 import "./ForumListItem.scss";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-function ForumListItem({ deleteForum, likeForum, forumId, forum }) {
+function ForumListItem({ userInfo, deleteForum, likeForum, forumId, forum }) {
     const onClick = () => {
         deleteForum(forumId)
     }
@@ -15,7 +16,8 @@ function ForumListItem({ deleteForum, likeForum, forumId, forum }) {
     }
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+  const handleClose = () => setOpen(false);
+
     return (
       <>
         <Link to={`/forum/${forumId}`} className="forum-list__content">
@@ -24,17 +26,17 @@ function ForumListItem({ deleteForum, likeForum, forumId, forum }) {
         <p className="forum-list__content">{forum.description}</p>
         <p className="forum-list__content">
           {forum.likes.length}
-          <img
-            src={likes}
-            alt="Like button"
-            className="forum-list__like"
-            onClick={onLike}
-          />
+            <img
+              src={(forum.likes.includes(userInfo._id)) ? likes : likesDisabled}
+              alt="Like button"
+              className="forum-list__like"
+              onClick={onLike}
+            />
         </p>
         <p className="forum-list__content">{forum.createdAt}</p>
         <p className="forum-list__content">{forum.createdBy}</p>
         <div className="forum-list__buttons">
-          <button onClick={handleOpen} className="forum-list__delete">
+          <button disabled={forum.createdBy !== userInfo.username} onClick={handleOpen} className="forum-list__delete">
             Delete
           </button>
           <Modal

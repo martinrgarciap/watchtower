@@ -9,7 +9,7 @@ const apiLinkUser = "http://localhost:9000/api/user";
 
 export default class ForumList extends Component {
   state = {
-    forums: [],
+    forums: []
   };
   componentDidMount() {
     axios
@@ -183,6 +183,7 @@ export default class ForumList extends Component {
                   likeForum={this.likeForum}
                   forumId={forum._id}
                   forum={forum}
+                  userInfo={this.props.userInfo}
                 />
               </div>
             );
