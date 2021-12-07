@@ -15,7 +15,7 @@ export default class ForumList extends Component {
     axios
       .get(`${apiLink}/`)
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         this.setState({
           forums: result.data,
         });

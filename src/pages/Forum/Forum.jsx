@@ -22,7 +22,7 @@ export default class Forum extends Component {
           },
         })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           this.setState({
             userInfo: res.data,
             isLoading: false,
