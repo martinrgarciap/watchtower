@@ -9,12 +9,18 @@
     display: flex;
     flex-direction: column-reverse;
     &__card{
-        background-color: $colour-primary-main-brand;
+        background-color: $color-primary-message;
         margin: 1rem;
         border-radius: 5px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        width: 70%;
+        &--selected{
+            background-color: $colour-primary-dark-accent;
+            width: 70%;
+            margin-left: auto;
+        }
     }
     &__info{
         display: flex;

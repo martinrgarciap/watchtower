@@ -13,9 +13,28 @@ export default class ForumDetails extends Component {
   state = {
     selectedForum: {},
     comments: [],
+    userInfo: {}
   };
 
   componentDidMount() {
+    let token = sessionStorage.getItem("authToken");
+
+    if (!!token) {
+      axios
+        .get(`${apiLinkUser}/current`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => {
+          this.setState({
+            userInfo: res.data
+          });
+        });
+    } else {
+      this.props.history.push("/login");
+    }
+
     let forumId = this.props.match.params.forumId;
     axios
       .get(`${apiLink}/${forumId}`)
@@ -41,7 +60,7 @@ export default class ForumDetails extends Component {
           },
         })
         .then((res) => {
-        //   console.log(res.data);
+          // console.log(res.data);
           axios
             .post(`${apiLink}/${this.state.selectedForum._id}/comment/`, {
               content: comment,
@@ -92,7 +111,7 @@ export default class ForumDetails extends Component {
                   }
                 )
                 .then((result) => {
-                  console.log(result);
+                  // console.log(result);
                   axios
                     .get(`${apiLink}/${this.state.selectedForum._id}`)
                     .then((result) => {
@@ -146,8 +165,12 @@ export default class ForumDetails extends Component {
             {this.state.selectedForum.createdBy}
           </h3>
         </div>
-            <div className="forum-details-comments">
-                <CommentList comments={this.state.comments} addLike={this.addLike}/>
+        <div className="forum-details-comments">
+          <CommentList
+            userInfo={this.state.userInfo}
+            comments={this.state.comments}
+            addLike={this.addLike}
+          />
           <CommentForm createComment={this.createComment} />
         </div>
       </>
