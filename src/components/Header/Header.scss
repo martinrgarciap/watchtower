@@ -18,12 +18,13 @@
         height: 100%;
         margin: 0;
         text-align: center;
-        align-items: stretch;
+        align-content: center;
+        align-items: center;
     }
     &__list-item{
         height: 100%;
         width: 100%;
-        border: 1px solid black;
+        margin-right: 1rem;
     }
     &__link{
         text-decoration: none;
@@ -39,6 +40,23 @@
         }
         &--important{
             color: $color-primary-important;
+        }
+    }
+    &__logout{
+        background-color: $colour-primary-main-brand;
+        color: $colour-primary-light-shades;
+        padding: 0.1rem;
+        border-radius: 1rem;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        font-size: 0.75rem;
+        @include tablet{
+            padding: 0.25rem;
+            font-size: 1rem;
+        }
+        &:hover{
+            background-color: $colour-primary-light-shades;
+            color: $colour-primary-light-accent;
         }
     }
     

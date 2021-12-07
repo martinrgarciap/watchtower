@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { Component } from "react";
+
 import Loading from "../../components/Loading/Loading"
 
 const apiLink = "http://localhost:9000/api/user";
