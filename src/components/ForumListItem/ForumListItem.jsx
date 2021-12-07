@@ -1,10 +1,9 @@
 import React from 'react'
-import likes from "../../assets/icons/likes.svg"
+import likes from "../../assets/icons/likes.png"
 import { Link } from "react-router-dom";
 import Modal from "@mui/material/Modal";
 import "./ForumListItem.scss";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 function ForumListItem({ deleteForum, likeForum, forumId, forum }) {

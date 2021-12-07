@@ -17,6 +17,8 @@
         justify-content: center;
         align-content: center;
         align-items: center;
+        text-decoration: none;
+        color: inherit;
     }
     &__buttons{
         border: 1px solid black;
@@ -26,7 +28,7 @@
         align-items: center;
     }
     &__like{
-        max-height: 2rem;
+        max-height: 1rem;
     }
     &__delete{
         background-color: $color-primary-important;
