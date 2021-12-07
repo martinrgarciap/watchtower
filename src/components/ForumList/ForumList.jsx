@@ -115,6 +115,7 @@ export default class ForumList extends Component {
                   this.setState({
                     forums: result.data,
                   });
+                  e.target.reset();
                 })
                 .catch((error) => {
                   console.log(error.data.message);

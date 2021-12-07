@@ -39,7 +39,7 @@ function LogIn(props) {
               <source src={backgroundVideo} type="video/mp4" />
             </video>
             <form onSubmit={handleSubmit} className="login-form">
-              <h3 className="login-form__header">Login</h3>
+              <h3 className="login-form__header">LOGIN</h3>
               <label htmlFor="username" className="login-form__label">
                 Username
               </label>

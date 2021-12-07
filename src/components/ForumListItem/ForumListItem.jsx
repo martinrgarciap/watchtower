@@ -18,7 +18,7 @@ function ForumListItem({ deleteForum, likeForum, forumId, forum }) {
     const handleClose = () => setOpen(false);
     return (
       <>
-        <Link to={`/${forumId}`} className="forum-list__content">
+        <Link to={`/forum/${forumId}`} className="forum-list__content">
           {forum.title}
         </Link>
         <p className="forum-list__content">{forum.description}</p>

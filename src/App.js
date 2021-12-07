@@ -6,6 +6,7 @@ import Emergency from "./pages/Emergency/Emergency";
 import Forum from "./pages/Forum/Forum";
 import SignUp from './pages/SignUp/SignUp';
 import Header from "./components/Header/Header";
+import ForumDetails from "./pages/ForumDetails/ForumDetails"
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
         <Header />
         <Switch>
           <Route path="/forum" exact component={Forum} />
-          {/* <Route path="/forum/:forumId" component={forumDetails} /> */}
+          <Route path="/forum/:forumId" component={ForumDetails} />
           <Route path="/emergency" exact component={Emergency} />
           <Route path="/signup" component={SignUp} />
           <Route path="/login" component={LogIn} />
