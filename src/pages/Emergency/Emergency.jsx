@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "./Emergency.scss"
 
 const apiLink = "http://localhost:9000/api/user";
 const apiLinkTwitter = "http://localhost:9000/api/twitter";
@@ -44,6 +45,10 @@ export default class Emergency extends Component {
       });
   }
   render() {
-    return <button onClick={this.onClick}>Press for Emergency</button>
+    return (
+      <div className="emergency" >
+        <button className="emergency__button" onClick={this.onClick}>Press for Emergency</button>
+      </div>
+    )
   }
 }

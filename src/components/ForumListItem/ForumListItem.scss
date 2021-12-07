@@ -29,7 +29,7 @@
         max-height: 2rem;
     }
     &__delete{
-        background-color: $colour-primary-light-accent;
+        background-color: $color-primary-important;
         color: $colour-primary-light-shades;
         padding: 0.25rem;
         border-radius: 1rem;
@@ -44,6 +44,24 @@
             background-color: $colour-primary-light-shades;
             color: $colour-primary-light-accent;
         }
+    }
+    &__modal{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        align-content: space-between;
+        width: 15rem;
+        height: 8rem;
+        background-color: $colour-primary-light-shades;
+        border: 2px solid #000;
+        box-shadow: 24;
+        p: 4;
     }
 }
 

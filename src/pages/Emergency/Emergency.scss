@@ -1,0 +1,15 @@
+.emergency{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70vh;
+
+    &__button{
+        
+        margin-top: 2rem;
+        font-size: 4rem;
+        border-radius: 50%;
+        height: 100%;
+    }
+}

@@ -1,7 +1,11 @@
 import React from 'react'
 import likes from "../../assets/icons/likes.svg"
 import { Link } from "react-router-dom";
+import Modal from "@mui/material/Modal";
 import "./ForumListItem.scss";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
 function ForumListItem({ deleteForum, likeForum, forumId, forum }) {
     const onClick = () => {
@@ -10,6 +14,9 @@ function ForumListItem({ deleteForum, likeForum, forumId, forum }) {
     const onLike = () => {
         likeForum(forumId)
     }
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
     return (
       <>
         <Link to={`/${forumId}`} className="forum-list__content">
@@ -28,9 +35,24 @@ function ForumListItem({ deleteForum, likeForum, forumId, forum }) {
         <p className="forum-list__content">{forum.createdAt}</p>
         <p className="forum-list__content">{forum.createdBy}</p>
         <div className="forum-list__buttons">
-          <button className="forum-list__delete" onClick={onClick}>
+          <button onClick={handleOpen} className="forum-list__delete">
             Delete
           </button>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box className="forum-list__modal">
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                Are your sure?
+              </Typography>
+              <button className="forum-list__delete" onClick={onClick}>
+                Delete
+              </button>
+            </Box>
+          </Modal>
         </div>
       </>
     );
