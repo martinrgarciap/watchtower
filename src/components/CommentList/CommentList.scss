@@ -10,12 +10,13 @@
     flex-direction: column-reverse;
     &__card{
         background-color: $color-primary-message;
-        margin: 1rem;
+        margin: 0.5rem;
         border-radius: 5px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         width: 70%;
+        padding: 0.25rem;
         &--selected{
             background-color: $colour-primary-dark-accent;
             width: 70%;
@@ -26,12 +27,17 @@
         display: flex;
         justify-content: space-between;
     }
+    &__like{
+        margin: 0;
+    }
+    &__likes{
+        margin: 0;
+    }
     &__comment{
         align-self: top;
-        margin: 0.5rem;
-        margin-bottom: 0;
+        margin: 0;
     }
     &__author{
-        
+        margin: 0;
     }
 }

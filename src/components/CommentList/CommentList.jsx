@@ -26,7 +26,9 @@ export default function CommentList(props) {
                         </p>
                         <div className="comment-list__info">
                           <p className="comment-list__likes">
-                            {comment.likes.length}
+                            {comment.likes.length === 0
+                              ? ""
+                              : comment.likes.length}
                             <img
                               src={
                                 comment.likes.includes(props.userInfo.username)

@@ -3,7 +3,8 @@
 
 .forum-details-form{
     width: 100%;
-    padding: 1rem;
+    background-color: $colour-primary-light-accent;
+    margin: 0 1rem;
     &__send{
         display: flex;
         padding: 1rem;
@@ -29,6 +30,7 @@
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         font-size: 0.75rem;
         margin-left: 1rem;
+        font-weight: 700;
         @include tablet{
             padding: 0.5rem;
             font-size: 1rem;

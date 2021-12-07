@@ -34,6 +34,7 @@
         padding: 0 2rem;
         font-size: 1rem;
         font-weight: 700;
+        border-radius: 5px;
         &:hover{
             background-color: $colour-primary-light-shades;
             color: $colour-primary-dark-shades;
@@ -44,15 +45,17 @@
     }
     &__logout{
         background-color: $colour-primary-main-brand;
+        width: 8rem;
+        height: 2rem;
         color: $colour-primary-light-shades;
-        padding: 0.1rem;
+        // padding: 0.1rem 1rem;
         border-radius: 1rem;
         border: none;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         font-size: 1rem;
         font-weight: 700;
         @include tablet{
-            padding: 0.25rem;
+            // padding: 0.25rem 2rem;
             font-size: 1rem;
         }
         &:hover{

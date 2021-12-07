@@ -1,8 +1,8 @@
 @use "./styles/partials/variables" as *;
 body{
   height: 100%;
-  background: $colour-primary-light-accent;
-  font-family: Noto;
+  background: $colour-primary-dark-accent;
+  font-family: $font-stack;
 }
 
 .background-video{
