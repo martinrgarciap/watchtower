@@ -11,12 +11,12 @@
         max-height: 6rem;
         max-width: 5rem;
         width: 100%;
-        
+        margin: 0 1rem;
         @include tablet{
-            margin-right: 4rem;
+            margin: 0 4rem;
         }
         @include desktop{
-            margin-right: 6rem;
+            margin: 0 6rem;
         }
     }
     &__list{
@@ -36,8 +36,6 @@
     &__list-item{
         height: 100%;
         width: 25%;
-        @include tablet{
-        }
     }
     &__link{
         text-decoration: none;
@@ -51,6 +49,9 @@
         @include tablet{
             font-size: 1rem;
             padding: 2rem 1rem;
+        }
+        @include tablet{
+            font-size: 1.5rem;
         }
         
         &:hover{
@@ -81,6 +82,9 @@
         @include tablet{
             // padding: 0.25rem 2rem;
             font-size: 1rem;
+        }
+        @include desktop{
+            font-size: 1.5rem;
         }
         &:hover{
             background-color: $colour-primary-dark-accent;

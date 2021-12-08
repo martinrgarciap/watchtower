@@ -5,7 +5,7 @@ import "./Home.scss"
 
 import Loading from "../../components/Loading/Loading"
 
-const apiLink = "http://localhost:9000/api/user";
+const apiLink = process.env.REACT_APP_APILINK;
 
 class Home extends Component {
   state = {
@@ -59,6 +59,7 @@ class Home extends Component {
             <h2 className="home-page__subheader">Current members of the neighbourhood: {this.state.userList.length}</h2>
           </div>
           <div className="home-page__user-card-list">
+            <p className="home-page__title">Current Users</p>
             <UserCardList userList={this.state.userList}/>
           </div>
         </div>

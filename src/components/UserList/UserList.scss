@@ -8,7 +8,7 @@
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
-	margin: 40px 0;
+	margin: 10px 0;
 }
 
 .user-card{
@@ -29,6 +29,12 @@
     -webkit-transition: all .2s ease-in;
     transition: all .2s ease-in;
     font-size: 0.8rem;
+    @include tablet{
+        font-size: 1.5rem;
+    }
+    @include desktop{
+        font-size: 2rem;
+    }
     &:hover .user-card__content{
         transform: translateY(-20px);
     }
@@ -47,18 +53,38 @@
         transition-delay: 2s;
     }
     &:hover:nth-of-type(2n-1){
-        height: 13rem;
+        height: 10rem;
         background: $color-primary-important;
+        @include tablet{
+            height: 15rem;
+        }
+        @include desktop{
+            height: 22rem;
+        }
     }
     &:hover:nth-of-type(2n){
-        height: 13rem;
+        height: 10rem;
         background: $colour-primary-dark-shades;
+        color: $color-primary-important;
+        @include tablet{
+            height: 15rem;
+        }
+        @include desktop{
+            height: 22rem;
+        }
     }
     &__hidden{
         position: absolute;
 	    bottom: 2rem;
 	    display: none;
         width: 100%;
+        font-size: 0.5rem;
+        @include tablet{
+        font-size: 0.9rem;
+        }
+        @include desktop{
+        font-size: 1.5rem;
+        }
     }
     &__hidden .user-card__content{
         transform: translateY(20px);
@@ -70,11 +96,18 @@
         color: $colour-primary-light-shades;
         transition: 0.5s;
         text-align: center;
+        width: 100%;
         margin: 0;
         }
     &__content:nth-of-type(2n-1){
-        color: $colour-primary-dark-shades;
+        color: $colour-primary-main-brand;
         font-weight: 700;
-        font-size: 0.85rem;
+        font-size: 0.6rem;
+        @include tablet{
+        font-size: 1rem;
+        }
+        @include desktop{
+        font-size: 1.5rem;
+        }
     }
 }
