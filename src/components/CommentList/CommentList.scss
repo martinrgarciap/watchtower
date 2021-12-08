@@ -4,11 +4,12 @@
 .comment-list{
     margin: 1rem;
     width: 100%;
-    height: 50vh;
+    height: 60vh;
     overflow-y:auto;
     display: flex;
     flex-direction: column-reverse;
     &__card{
+        color: $colour-primary-dark-shades;
         background-color: $color-primary-message;
         margin: 0.5rem;
         border-radius: 5px;
@@ -16,9 +17,9 @@
         flex-direction: column;
         justify-content: space-between;
         width: 70%;
-        padding: 0.25rem;
+        padding: 0.5rem;
         &--selected{
-            background-color: $colour-primary-dark-accent;
+            background-color: $colour-primary-main-brand;
             width: 70%;
             margin-left: auto;
         }
@@ -26,18 +27,42 @@
     &__info{
         display: flex;
         justify-content: space-between;
+        align-content: center;
+        height: 1rem;
+        align-items: center;
+        @include tablet{
+            height: 2rem;
+        }
     }
     &__like{
         margin: 0;
+        height: 100%;
     }
     &__likes{
         margin: 0;
+        height: 0.8rem;
     }
     &__comment{
         align-self: top;
         margin: 0;
+        font-size: 0.8rem;
+        font-weight: 700;
+        @include tablet {
+            font-size: 1rem;
+        }
+        @include desktop{
+            font-size: 1.2rem;
+        }
     }
     &__author{
         margin: 0;
+        font-size: 0.6rem;
+        color: $colour-primary-dark-shades;
+        @include tablet {
+            font-size: 0.9rem;
+        }
+        @include desktop{
+            font-size: 1rem;
+        }
     }
 }

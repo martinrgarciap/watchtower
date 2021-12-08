@@ -6,12 +6,12 @@ import CommentForm from "../../components/CommentForm/CommentForm"
 import CommentList from "../../components/CommentList/CommentList"
 import "./ForumDetails.scss"
 import socketIOClient from "socket.io-client";
-const ENDPOINT = "http://localhost:9001";
+const ENDPOINT = process.env.REACT_APP_SOCKETENDPOINT;
 
 const socket = socketIOClient(ENDPOINT);
 
-const apiLinkUser = "http://localhost:9000/api/user";
-const apiLink = "http://localhost:9000/api/forum";
+const apiLinkUser = process.env.REACT_APP_APILINK;
+const apiLink = process.env.REACT_APP_APILINKFORUM;
 
 export default class ForumDetails extends Component {
   state = {
@@ -71,9 +71,9 @@ export default class ForumDetails extends Component {
     });
   }
 
-  componentWillUnmount() {
-    socket.disconnect();
-  }
+  // componentWillUnmount() {
+  //   socket.disconnect();
+  // }
   createComment = (e, comment) => {
     e.preventDefault();
     let token = sessionStorage.getItem("authToken");
