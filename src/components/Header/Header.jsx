@@ -11,10 +11,13 @@ export default class Header extends Component {
     document.location.href = "/login";
     
   };
-  render() {
+  render()
+  {
     return (
       <div className="header">
-        <img className="header__logo" src={logo} alt="Logo" />
+        <Link className="header__link--logo" to="/">
+          <img className="header__logo" src={logo} alt="Logo" />
+        </Link>
         <ul className="header__list">
           <li className="header__list-item">
             <Link to="/" className="header__link">
@@ -37,7 +40,9 @@ export default class Header extends Component {
             </Link>
           </li>
           <li className="header__list-item">
-            <button className="header__logout" onClick={this.handleLogOut}>Log Out</button>
+            <button className="header__logout" onClick={this.handleLogOut}>
+              Log Out
+            </button>
           </li>
         </ul>
       </div>

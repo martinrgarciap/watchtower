@@ -15,25 +15,31 @@ class SignUp extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    axios
-      .post(`${apiLink}/register`, {
-        username: e.target.username.value,
-        password: e.target.password.value,
-        email: e.target.email.value,
-        firstName: e.target.first.value,
-        lastName: e.target.last.value,
-        phoneNumber: e.target.phone.value,
+    if (e.target.password.value !== e.target.verify.value) {
+      this.setState({
+        errorMessage: "Password and verify password do not match"
       })
-      .then((response) => {
-        // console.log(response);
-        this.props.history.push("/login");
-      })
-      .catch((error) => {
-        // console.log(error.response.data.message)
-        this.setState({
-            errorMessage: error.response.data.message
+      return
+    }
+      axios
+        .post(`${apiLink}/register`, {
+          username: e.target.username.value,
+          password: e.target.password.value,
+          email: e.target.email.value,
+          firstName: e.target.first.value,
+          lastName: e.target.last.value,
+          phoneNumber: e.target.phone.value,
         })
-      });
+        .then((response) => {
+          // console.log(response);
+          this.props.history.push("/login");
+        })
+        .catch((error) => {
+          // console.log(error.response.data.message)
+          this.setState({
+            errorMessage: error.response.data.message,
+          });
+        });
   };
   render() {
     
@@ -90,12 +96,12 @@ class SignUp extends Component {
             className="signup-form__input"
             required
           />
-          <label htmlFor="verify-password" className="signup-form__label">
+          <label htmlFor="verify" className="signup-form__label">
             Verify Password
           </label>
           <input
             type="password"
-            name="verify-password"
+            name="verify"
             placeholder="Verify Password"
             className="signup-form__input"
             required
