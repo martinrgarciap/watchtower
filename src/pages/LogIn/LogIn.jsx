@@ -26,7 +26,8 @@ function LogIn(props) {
           })
             .catch((error) => console.log(error.response.data.message));
         // document.location.href = "/";
-    }
+  }
+  document.title = "Log In";
 
     return (
           <div className="login">

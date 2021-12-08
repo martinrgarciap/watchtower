@@ -29,6 +29,7 @@ function SignUp(props) {
       });
     // document.location.href = "/login";
   };
+  document.title = "Sign Up";
   return (
     <div className="signup">
       <video

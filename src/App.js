@@ -8,7 +8,6 @@ import SignUp from './pages/SignUp/SignUp';
 import Header from "./components/Header/Header";
 import ForumDetails from "./pages/ForumDetails/ForumDetails"
 
-
 function App() {
   return (
     <div className="App">

@@ -54,6 +54,7 @@ export default class Emergency extends Component {
     });
   };
   render() {
+    document.title = "WatchTower Emergency";
     return (
       <div className={this.state.pressedButtonBackground}>
         <button className={this.state.pressedButton} onClick={this.onClick}>

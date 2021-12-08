@@ -3,6 +3,11 @@ import "./ForumList.scss";
 import axios from "axios";
 import ForumListItem from "../ForumListItem/ForumListItem";
 
+import socketIOClient from "socket.io-client";
+const ENDPOINT = "http://localhost:9001";
+
+const socket = socketIOClient(ENDPOINT);
+
 const apiLink = "http://localhost:9000/api/forum";
 const apiLinkUser = "http://localhost:9000/api/user";
 
@@ -23,12 +28,9 @@ export default class ForumList extends Component {
       .catch((error) => {
         console.log(error);
       });
-  }
-
-  deleteForum = (forumId) => {
-    axios
-      .delete(`${apiLink}/${forumId}`)
-      .then((result) => {
+    socket.on("connection");
+    socket.on("forum", () => {
+      setTimeout(() => {
         axios
           .get(`${apiLink}/`)
           .then((result) => {
@@ -40,14 +42,38 @@ export default class ForumList extends Component {
           .catch((error) => {
             console.log(error);
           });
+      }, 500);
+    })
+  }
+
+  componentWillUnmount() {
+    socket.disconnect();
+  }
+
+  deleteForum = (forumId) => {
+    axios
+      .delete(`${apiLink}/${forumId}`)
+      .then((result) => {
+        axios
+          .get(`${apiLink}/`)
+          .then((result) => {
+            // console.log(result);
+            this.setState({
+              forums: result.data,
+            });
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       })
       .catch((error) => {
         console.log(error);
       });
+    socket.emit("forum");
   };
 
   likeForum = (forumId) => {
-    console.log(forumId);
+    // console.log(forumId);
 
     let token = sessionStorage.getItem("authToken");
 
@@ -59,17 +85,17 @@ export default class ForumList extends Component {
           },
         })
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           axios
             .post(`${apiLink}/${forumId}/like`, {
               createdBy: res.data._id,
             })
             .then((result) => {
-              console.log(result);
+              // console.log(result);
               axios
                 .get(`${apiLink}/`)
                 .then((result) => {
-                  console.log(result);
+                  // console.log(result);
                   this.setState({
                     forums: result.data,
                   });
@@ -85,6 +111,7 @@ export default class ForumList extends Component {
     } else {
       this.props.history.push("/login");
     }
+    socket.emit("forum");
   };
 
   handleSubmit = (e) => {
@@ -99,7 +126,7 @@ export default class ForumList extends Component {
           },
         })
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           axios
             .post(`${apiLink}/`, {
               title: e.target.title.value,
@@ -107,11 +134,11 @@ export default class ForumList extends Component {
               createdBy: res.data.username,
             })
             .then((result) => {
-              console.log(result);
+              // console.log(result);
               axios
                 .get(`${apiLink}/`)
                 .then((result) => {
-                  console.log(result);
+                  // console.log(result);
                   this.setState({
                     forums: result.data,
                   });
@@ -128,6 +155,7 @@ export default class ForumList extends Component {
     } else {
       this.props.history.push("/login");
     }
+    socket.emit("forum");
   }
 
   render() {

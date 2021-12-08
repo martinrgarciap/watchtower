@@ -48,6 +48,7 @@ class Home extends Component {
   }
 
   render() {
+    document.title = "WatchTower Home";
     const { isLoading, userInfo } = this.state;
     return isLoading ? (
       <Loading />

@@ -5,6 +5,10 @@ import Loading from "../../components/Loading/Loading"
 import CommentForm from "../../components/CommentForm/CommentForm"
 import CommentList from "../../components/CommentList/CommentList"
 import "./ForumDetails.scss"
+import socketIOClient from "socket.io-client";
+const ENDPOINT = "http://localhost:9001";
+
+const socket = socketIOClient(ENDPOINT);
 
 const apiLinkUser = "http://localhost:9000/api/user";
 const apiLink = "http://localhost:9000/api/forum";
@@ -13,7 +17,7 @@ export default class ForumDetails extends Component {
   state = {
     selectedForum: {},
     comments: [],
-    userInfo: {}
+    userInfo: {},
   };
 
   componentDidMount() {
@@ -28,7 +32,7 @@ export default class ForumDetails extends Component {
         })
         .then((res) => {
           this.setState({
-            userInfo: res.data
+            userInfo: res.data,
           });
         });
     } else {
@@ -46,8 +50,30 @@ export default class ForumDetails extends Component {
         });
       })
       .catch((error) => console.log(error));
+
+    //CONNECT SOCKET
+    socket.on("connection");
+    socket.on("message", () => {
+      setTimeout(() => {
+        axios
+          .get(`${apiLink}/${this.state.selectedForum._id}`)
+          .then((result) => {
+            //   console.log(result);
+            this.setState({
+              selectedForum: result.data,
+              comments: result.data.comments,
+            });
+          })
+          .catch((error) => {
+            console.log(error.data.message);
+          });
+      }, 500);
+    });
   }
 
+  componentWillUnmount() {
+    socket.disconnect();
+  }
   createComment = (e, comment) => {
     e.preventDefault();
     let token = sessionStorage.getItem("authToken");
@@ -67,7 +93,7 @@ export default class ForumDetails extends Component {
               createdBy: res.data.username,
             })
             .then((result) => {
-            //   console.log(result);
+              //   console.log(result);
               axios
                 .get(`${apiLink}/${this.state.selectedForum._id}`)
                 .then((result) => {
@@ -76,7 +102,7 @@ export default class ForumDetails extends Component {
                     selectedForum: result.data,
                     comments: result.data.comments,
                   });
-                    e.target.reset();
+                  e.target.reset();
                 })
                 .catch((error) => {
                   console.log(error.data.message);
@@ -89,53 +115,56 @@ export default class ForumDetails extends Component {
     } else {
       this.props.history.push("/login");
     }
-    };
-    
-    addLike = (commentId) => {
-        let token = sessionStorage.getItem("authToken");
+    socket.emit("message");
+  };
 
-        if (!!token) {
+  addLike = (commentId) => {
+    let token = sessionStorage.getItem("authToken");
+
+    if (!!token) {
+      axios
+        .get(`${apiLinkUser}/current`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => {
+          // console.log(res.data);
           axios
-            .get(`${apiLinkUser}/current`, {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            })
-            .then((res) => {
-                // console.log(res.data);
+            .post(
+              `${apiLink}/${this.state.selectedForum._id}/comment/${commentId}/like`,
+              {
+                createdBy: res.data.username,
+              }
+            )
+            .then((result) => {
+              // console.log(result);
               axios
-                .post(
-                  `${apiLink}/${this.state.selectedForum._id}/comment/${commentId}/like`,
-                  {
-                    createdBy: res.data.username,
-                  }
-                )
+                .get(`${apiLink}/${this.state.selectedForum._id}`)
                 .then((result) => {
-                  // console.log(result);
-                  axios
-                    .get(`${apiLink}/${this.state.selectedForum._id}`)
-                    .then((result) => {
-                      //   console.log(result);
-                      this.setState({
-                        selectedForum: result.data,
-                        comments: result.data.comments,
-                      });
-                    })
-                    .catch((error) => {
-                      console.log(error.data.message);
-                    });
+                  //   console.log(result);
+                  this.setState({
+                    selectedForum: result.data,
+                    comments: result.data.comments,
+                  });
                 })
                 .catch((error) => {
                   console.log(error.data.message);
                 });
+            })
+            .catch((error) => {
+              console.log(error.data.message);
             });
-        } else {
-          this.props.history.push("/login");
-        }
+        });
+    } else {
+      this.props.history.push("/login");
     }
+    socket.emit("message");
+  };
 
   render() {
     document.title = "Forum Details";
+
     if (!this.state.selectedForum) {
       console.log(this.state.selectedForum);
       return (
@@ -154,6 +183,7 @@ export default class ForumDetails extends Component {
         </>
       );
     }
+
     return (
       <>
         <div className="forum-details-headers">
