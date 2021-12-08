@@ -7,13 +7,14 @@
 
 .login-form{
     position: absolute;
-    background-color: $colour-primary-light-shades;
+    background-color: $colour-primary-light-accent;
     display: flex;
     flex-direction: column;
     width: 25%;
     padding: 1rem;
     border-radius: 0.5rem;
-    opacity: 0.95;
+    // opacity: 0.95;
+    // border: 1px solid black;
     margin: 1rem;
     margin-top: 10rem;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -49,28 +50,33 @@
             font-size: 0.8rem;
         }
     }
+    &__error{
+        margin: 0;
+        font-size: 0.75rem;
+        color: $color-primary-important;
+    }
     &__submit-button{
-        background-color: $colour-primary-dark-shades;
-        color: $colour-primary-light-shades;
+        background-color: $colour-primary-main-brand;
+        color: $colour-primary-dark-accent;
         padding: 0.25rem;
         border-radius: 1rem;
         font-weight: 700;
         border: none;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        margin-bottom: 1rem;
+        margin: 1rem 0;
         font-size: 0.75rem;
         @include tablet{
             padding: 0.5;
             font-size: 1rem;
         }
         &:hover{
-            background-color: $colour-primary-light-shades;
-            color: $colour-primary-dark-shades;
+            background-color: $colour-primary-dark-accent;
+            color: $colour-primary-main-brand;
         }
     }
     &__signup-button{
         background-color: $colour-primary-dark-accent;
-        color: $colour-primary-light-shades;
+        color: $colour-primary-light-accent;
         padding: 0.25rem;
         width: 100%;
         font-weight: 700;
@@ -84,7 +90,7 @@
             font-size: 1rem;
         }
         &:hover{
-            background-color: $colour-primary-light-shades;
+            background-color: $colour-primary-light-accent;
             color: $colour-primary-dark-accent;
         }
     }

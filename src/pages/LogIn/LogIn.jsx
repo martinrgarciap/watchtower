@@ -1,17 +1,20 @@
-import React from 'react';
 import { Link } from "react-router-dom";
+import React, { Component } from "react";
 import "./Login.scss";
 import axios from "axios";
 import backgroundVideo from "../../assets/background/firewatch.mp4";
 
 // import backgroundImage from "../../assets/background/watchtowerImage.jpg"
 
-const apiLink = "http://localhost:9000/api/user";
+const apiLink = process.env.REACT_APP_APILINK;
 
-function LogIn(props) {
+class LogIn extends Component {
+  state = {
+    errorMessage: ''
+  }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    handleSubmit = (e) => {
+      e.preventDefault();
 
         axios.post(`${apiLink}/login`,
             {
@@ -22,12 +25,17 @@ function LogIn(props) {
             // console.log(response);
             let token = response.data.token;
             sessionStorage.setItem("authToken", token);
-            props.history.push("/");
+            this.props.history.push("/");
           })
-            .catch((error) => console.log(error.response.data.message));
-        // document.location.href = "/";
+          .catch((error) => {
+            this.setState({
+                errorMessage: error.response.data.message
+            })
+            // console.log(error.response.data.message)
+          });
   }
-  document.title = "Log In";
+  render() {
+    document.title = "Log In";
 
     return (
           <div className="login">
@@ -39,7 +47,7 @@ function LogIn(props) {
             >
               <source src={backgroundVideo} type="video/mp4" />
             </video>
-            <form onSubmit={handleSubmit} className="login-form">
+            <form onSubmit={this.handleSubmit} className="login-form">
               <h3 className="login-form__header">LOGIN</h3>
               <label htmlFor="username" className="login-form__label">
                 Username
@@ -60,7 +68,8 @@ function LogIn(props) {
                 placeholder="Password"
                 className="login-form__input"
                 required
-              />
+          />
+          <p className="login-form__error">{this.state.errorMessage}</p>
               <button type="submit" className="login-form__submit-button">
                 LOGIN
               </button>
@@ -70,6 +79,7 @@ function LogIn(props) {
             </form>
           </div>
         );
+  }
 }
 
 export default LogIn;
