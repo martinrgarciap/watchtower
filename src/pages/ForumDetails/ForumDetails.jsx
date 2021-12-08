@@ -165,7 +165,7 @@ export default class ForumDetails extends Component {
   };
 
   render() {
-    document.title = "Forum Details";
+    document.title = "WatchTower Forum Details";
 
     if (!this.state.selectedForum) {
       // console.log(this.state.selectedForum);

@@ -159,7 +159,7 @@ export default class ForumList extends Component {
   }
 
   render() {
-    document.title = "Watchtower Forum";
+    document.title = "WatchTower Forum";
     return (
       <>
         <form onSubmit={this.handleSubmit} className="forum-form">

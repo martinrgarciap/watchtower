@@ -35,7 +35,7 @@ class LogIn extends Component {
           });
   }
   render() {
-    document.title = "Log In";
+    document.title = "WatchTower Log In";
 
     return (
           <div className="login">

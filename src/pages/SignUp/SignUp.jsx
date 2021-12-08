@@ -43,7 +43,7 @@ class SignUp extends Component {
   };
   render() {
     
-    document.title = "Sign Up";
+    document.title = "WatchTower Sign Up";
     return (
       <div className="signup">
         <video
