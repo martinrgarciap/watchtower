@@ -12,6 +12,7 @@ export default class Emergency extends Component {
     userInfo: {},
     pressed: "emergency__call",
     pressedButton: "emergency__button",
+    pressedButtonBackground: "emergency"
   };
 
   componentDidMount() {
@@ -49,11 +50,12 @@ export default class Emergency extends Component {
     this.setState({
       pressed: "emergency__call emergency__call--active",
       pressedButton: "emergency__button emergency__button--active",
+      pressedButtonBackground: "emergency emergency--active"
     });
   };
   render() {
     return (
-      <div className="emergency">
+      <div className={this.state.pressedButtonBackground}>
         <button className={this.state.pressedButton} onClick={this.onClick}>
           Press for Emergency
           <img src={wave} alt="Emergency wave" className={this.state.pressed} />
