@@ -4,12 +4,12 @@ import axios from "axios";
 import ForumListItem from "../ForumListItem/ForumListItem";
 
 import socketIOClient from "socket.io-client";
-const ENDPOINT = "http://localhost:9001";
+const ENDPOINT = process.env.REACT_APP_SOCKETENDPOINT;
 
 const socket = socketIOClient(ENDPOINT);
 
-const apiLink = "http://localhost:9000/api/forum";
-const apiLinkUser = "http://localhost:9000/api/user";
+const apiLink = process.env.REACT_APP_APILINKFORUM;
+const apiLinkUser = process.env.REACT_APP_APILINK;
 
 
 export default class ForumList extends Component {
@@ -26,7 +26,7 @@ export default class ForumList extends Component {
         });
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
     socket.on("connection");
     socket.on("forum", () => {
@@ -34,13 +34,13 @@ export default class ForumList extends Component {
         axios
           .get(`${apiLink}/`)
           .then((result) => {
-            console.log(result);
+            // console.log(result);
             this.setState({
               forums: result.data,
             });
           })
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
           });
       }, 500);
     })
@@ -63,11 +63,11 @@ export default class ForumList extends Component {
             });
           })
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
           });
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
     socket.emit("forum");
   };
@@ -101,11 +101,11 @@ export default class ForumList extends Component {
                   });
                 })
                 .catch((error) => {
-                  console.log(error);
+                  // console.log(error);
                 });
             })
             .catch((error) => {
-              console.log(error);
+              // console.log(error);
             });
         });
     } else {
@@ -145,11 +145,11 @@ export default class ForumList extends Component {
                   e.target.reset();
                 })
                 .catch((error) => {
-                  console.log(error.data.message);
+                  // console.log(error.data.message);
                 });
             })
             .catch((error) => {
-              console.log(error.data.message);
+              // console.log(error.data.message);
             });
         });
     } else {

@@ -49,7 +49,9 @@ export default class ForumDetails extends Component {
           comments: response.data.comments,
         });
       })
-      .catch((error) => console.log(error));
+      .catch((error) =>{
+        // console.log(error)
+    });
 
     //CONNECT SOCKET
     socket.on("connection");
@@ -65,7 +67,7 @@ export default class ForumDetails extends Component {
             });
           })
           .catch((error) => {
-            console.log(error.data.message);
+            // console.log(error.data.message);
           });
       }, 500);
     });
@@ -105,11 +107,11 @@ export default class ForumDetails extends Component {
                   e.target.reset();
                 })
                 .catch((error) => {
-                  console.log(error.data.message);
+                  // console.log(error.data.message);
                 });
             })
             .catch((error) => {
-              console.log(error.data.message);
+              // console.log(error.data.message);
             });
         });
     } else {
@@ -149,11 +151,11 @@ export default class ForumDetails extends Component {
                   });
                 })
                 .catch((error) => {
-                  console.log(error.data.message);
+                  // console.log(error.data.message);
                 });
             })
             .catch((error) => {
-              console.log(error.data.message);
+              // console.log(error.data.message);
             });
         });
     } else {
@@ -166,7 +168,7 @@ export default class ForumDetails extends Component {
     document.title = "Forum Details";
 
     if (!this.state.selectedForum) {
-      console.log(this.state.selectedForum);
+      // console.log(this.state.selectedForum);
       return (
         <>
           <h2 className="forum-description__message">Page Not Found</h2>

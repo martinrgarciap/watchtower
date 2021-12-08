@@ -3,8 +3,8 @@ import axios from "axios";
 import wave from "../../assets/loaders/svg-smil-loaders/rings.svg"
 import "./Emergency.scss"
 
-const apiLink = "http://localhost:9000/api/user";
-const apiLinkTwitter = "http://localhost:9000/api/twitter";
+const apiLink = process.env.REACT_APP_APILINK;
+const apiLinkTwitter = process.env.REACT_APP_APILINKTWITTER;
 
 export default class Emergency extends Component {
   state = {
@@ -45,7 +45,7 @@ export default class Emergency extends Component {
         tweet: message,
       })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
       });
     this.setState({
       pressed: "emergency__call emergency__call--active",

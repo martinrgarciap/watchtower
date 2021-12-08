@@ -3,7 +3,7 @@ import axios from "axios";
 import "./Forum.scss"
 import ForumList from "../../components/ForumList/ForumList"
 
-const apiLink = "http://localhost:9000/api/user";
+const apiLink = process.env.REACT_APP_APILINK;
 
 export default class Forum extends Component {
   state = {
