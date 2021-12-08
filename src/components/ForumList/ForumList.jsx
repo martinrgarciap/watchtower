@@ -164,7 +164,7 @@ export default class ForumList extends Component {
       <>
         <form onSubmit={this.handleSubmit} className="forum-form">
           <h4 className="forum-form__subheader">Create a Forum</h4>
-          <div>
+          <div className="forum-form__input-division">
             <label htmlFor="title" className="forum-form__label">
               Title
             </label>
@@ -176,7 +176,7 @@ export default class ForumList extends Component {
               required
             />
           </div>
-          <div>
+          <div className="forum-form__input-division">
             <label htmlFor="description" className="forum-form__label">
               Description
             </label>

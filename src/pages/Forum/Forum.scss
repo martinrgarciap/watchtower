@@ -3,33 +3,37 @@
 
 .forum-form{
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    margin: 2rem;
+    margin: 0 2rem;
     background-color: $colour-primary-dark-shades;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    padding: 1rem 0;
+    padding: 1rem 1rem;
     border-radius: 5px;
+    @include tablet{
+        flex-direction: row;
+    }
     &__header{
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         margin: 0;
         color: $colour-primary-dark-shades;
         font-weight: 700;
         text-align: center;
-        margin-top: 1.5rem;
+        margin-top: 1rem;
         @include tablet{
             font-size: 2rem;
         }
     }
     &__subheader{
         width: 100%;
-        font-size: 1rem;
+        font-size: 0.8rem;
         margin: 0;
         color: $colour-primary-light-accent;
         font-weight: 700;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
         text-align: center;
         @include tablet{
             font-size: 1.5rem;
@@ -52,23 +56,28 @@
         padding: 0.25rem;
         @include tablet{
             font-size: 0.8rem;
+            width: 100%;
+            margin-right: 1rem;
         }
     }
+
     &__submit-button{
-        background-color: $colour-primary-dark-accent;
-        color: $colour-primary-light-shades;
+        background-color: $colour-primary-main-brand;
+        color: $colour-primary-dark-accent;
         padding: 0.25rem;
         border-radius: 1rem;
         border: none;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         font-size: 0.75rem;
+        font-weight: 700;
+        padding: 0.5rem 2rem;
         @include tablet{
-            padding: 0.5rem;
+            padding: 0.5rem 2rem;
             font-size: 1rem;
         }
         &:hover{
-            background-color: $colour-primary-light-shades;
-            color: $colour-primary-light-accent;
+            background-color: $colour-primary-dark-accent;
+            color: $colour-primary-main-brand;
         }
     }
 }
@@ -84,14 +93,18 @@
     display: flex;
     justify-content: space-evenly;
     background-color: $colour-primary-light-accent;
-    border-radius: 5px;
     &__labels{
         width: 20%;
         text-align: center;
         height: 100%;
         margin: 0;
         padding: 0.75rem 0;
-        border: 1px solid black;
-        font-size: 1rem;
+        font-size: 0.6rem;
+        @include tablet{
+            font-size: 0.9rem;
+        }
+        @include desktop{
+            font-size: 1.5rem;
+        }
     }
 }

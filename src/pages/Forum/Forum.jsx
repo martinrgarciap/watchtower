@@ -37,7 +37,7 @@ export default class Forum extends Component {
   render() {
       return (
         <>
-          <h3 className="forum-form__header">Forum</h3>
+          {/* <h3 className="forum-form__header">Forum</h3> */}
           <ForumList userInfo={this.state.userInfo} />
         </>
       );}

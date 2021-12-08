@@ -20,23 +20,37 @@ function ForumListItem({ userInfo, deleteForum, likeForum, forumId, forum }) {
 
     return (
       <>
-        <Link to={`/forum/${forumId}`} className="forum-list__content">
-          {forum.title}
-        </Link>
-        <p className="forum-list__content">{forum.description}</p>
-        <p className="forum-list__content">
-          {forum.likes.length}
+        <div className="forum-list__divitions">
+          <Link to={`/forum/${forumId}`} className="forum-list__content">
+            {forum.title}
+          </Link>
+        </div>
+        <div className="forum-list__divitions">
+          <p className="forum-list__content">{forum.description}</p>
+        </div>
+        <div className="forum-list__divitions">
+          <p className="forum-list__content">
+            {forum.likes.length}
             <img
-              src={(forum.likes.includes(userInfo._id)) ? likes : likesDisabled}
+              src={forum.likes.includes(userInfo._id) ? likes : likesDisabled}
               alt="Like button"
               className="forum-list__like"
               onClick={onLike}
             />
-        </p>
-        <p className="forum-list__content">{forum.createdAt}</p>
-        <p className="forum-list__content">{forum.createdBy}</p>
+          </p>
+        </div>
+        <div className="forum-list__divitions">
+          <p className="forum-list__content">{forum.createdAt}</p>
+        </div>
+        <div className="forum-list__divitions">
+          <p className="forum-list__content">{forum.createdBy}</p>
+        </div>
         <div className="forum-list__buttons">
-          <button disabled={forum.createdBy !== userInfo.username} onClick={handleOpen} className="forum-list__delete">
+          <button
+            disabled={forum.createdBy !== userInfo.username}
+            onClick={handleOpen}
+            className="forum-list__delete"
+          >
             Delete
           </button>
           <Modal

@@ -3,4 +3,16 @@
 
 .forum-list-item{
     display: flex;
+    border: 1px solid black;
+    padding: 0.75rem 0;
+}
+.forum-form__input-division{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    @include tablet{
+        flex-direction: row;
+        width: 50%;
+    }
 }
