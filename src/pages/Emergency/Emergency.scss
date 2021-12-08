@@ -1,0 +1,40 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.emergency{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70vh;
+    padding-bottom: 20rem;
+    &--active{
+        background-color: $colour-primary-main-brand;
+    }
+
+    &__button{
+        background-color: $colour-primary-dark-shades;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        color: $colour-primary-light-shades;
+        position: relative;
+        margin-top: 4rem;
+        font-size: 4rem;
+        border-radius: 50%;
+        height: 100%;
+        &--active{
+            background-color: $color-primary-important;
+            color: $colour-primary-dark-shades;
+        }
+    }
+    &__call{
+        display: none;
+        top: -25%;
+        left: -27%;
+        position: absolute;
+        height: 100vh;
+        width: 100vh;
+        &--active{
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+@use "./styles/partials/variables" as *;
+body{
+  height: 100%;
+  background: $colour-primary-dark-accent;
+  font-family: $font-stack;
+}
+
+.background-video{
+    position: relative;
+    object-fit: cover;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+}

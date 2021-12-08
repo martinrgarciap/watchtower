@@ -1,0 +1,116 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.user-list{
+    position: relative;
+	z-index: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 10px 0;
+    height: 60vh;
+    overflow-y:auto;
+    margin-bottom: 5rem;
+}
+
+.user-card{
+    position: relative;
+    width: 25%;
+    height: 5vh;
+    background: $colour-primary-light-accent;
+    margin: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+    font-size: 0.8rem;
+    @include tablet{
+        font-size: 1.5rem;
+    }
+    @include desktop{
+        font-size: 2rem;
+    }
+    &:hover .user-card__content{
+        transform: translateY(-20px);
+    }
+    &:hover .user-card__content--username{
+        display: none;
+    }
+    
+    &:hover .user-card__hidden .user-card__content{
+        transform: translateY(0px);
+	    opacity: 1;
+    }
+    &:hover .user-card__hidden{
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        transition-delay: 2s;
+    }
+    &:hover:nth-of-type(2n-1){
+        height: 10rem;
+        background: $color-primary-important;
+        @include tablet{
+            height: 15rem;
+        }
+        @include desktop{
+            height: 22rem;
+        }
+    }
+    &:hover:nth-of-type(2n){
+        height: 10rem;
+        background: $colour-primary-dark-shades;
+        color: $color-primary-important;
+        @include tablet{
+            height: 15rem;
+        }
+        @include desktop{
+            height: 22rem;
+        }
+    }
+    &__hidden{
+        position: absolute;
+	    bottom: 2rem;
+	    display: none;
+        width: 100%;
+        font-size: 0.5rem;
+        @include tablet{
+        font-size: 0.9rem;
+        }
+        @include desktop{
+        font-size: 1.5rem;
+        }
+    }
+    &__hidden .user-card__content{
+        transform: translateY(20px);
+	    transition: 2s;
+	    opacity: 0;
+    }
+    &__content{
+        position: relative;
+        color: $colour-primary-light-shades;
+        transition: 0.5s;
+        text-align: center;
+        width: 100%;
+        margin: 0;
+        }
+    &__content:nth-of-type(2n-1){
+        color: $colour-primary-main-brand;
+        font-weight: 700;
+        font-size: 0.6rem;
+        @include tablet{
+        font-size: 1rem;
+        }
+        @include desktop{
+        font-size: 1.5rem;
+        }
+    }
+}

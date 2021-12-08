@@ -1,0 +1,43 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.forum-details-form{
+    width: 100%;
+    background-color: $colour-primary-light-accent;
+    margin: 0 1rem;
+    &__send{
+        display: flex;
+        padding: 1rem;
+    }
+    &__input{
+        font-size: 0.6rem;
+        color: $colour-primary-light-accent;
+        border-radius: 1rem;
+        border: 1px solid black;
+        margin-bottom: 0.25rem;
+        padding: 0.25rem;
+        width: 100%;
+        @include tablet{
+            font-size: 0.8rem;
+        }
+    }   
+    &__submit-button{
+        background-color: $colour-primary-main-brand;
+        color: $colour-primary-dark-accent;
+        padding: 0.25rem;
+        border-radius: 1rem;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        font-size: 0.75rem;
+        margin-left: 1rem;
+        font-weight: 700;
+        @include tablet{
+            padding: 0.5rem;
+            font-size: 1rem;
+        }
+        &:hover{
+            background-color: $colour-primary-dark-accent;
+            color: $colour-primary-main-brand;
+        }
+    }
+}

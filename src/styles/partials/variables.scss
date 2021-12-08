@@ -1,0 +1,16 @@
+@use "./typography" as *;
+// Media screen breakpoints
+$tablet-breakpoint: 767px;
+$desktop-breakpoint: 1280px;
+
+$font-stack: Oswald;
+
+// Colour variables
+
+$colour-primary-dark-accent: #3b444e;
+$colour-primary-dark-shades: #0c0e28;
+$colour-primary-main-brand: #f8ce53;
+$colour-primary-light-shades: #b2b29a;
+$colour-primary-light-accent: #d8d3cc;
+$color-primary-important: #8f1c16;
+$color-primary-message: #909090;

@@ -1,0 +1,30 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.forum-details-headers{
+    background-color: $colour-primary-dark-shades;
+    color: $colour-primary-light-shades;
+    margin: 1rem 3rem 0 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    &__header{
+        margin: 0;
+        font-size: 1.5rem;
+    }
+    &__description{
+        margin: 0;
+        font-size: 1rem;
+    }
+}
+
+.forum-details-comments{
+    background-color: $colour-primary-light-shades;
+    color: $colour-primary-dark-shades;
+    margin: 0 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid black;
+}

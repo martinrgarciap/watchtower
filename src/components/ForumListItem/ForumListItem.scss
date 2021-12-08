@@ -1,0 +1,89 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.forum-list{
+    background-color: $colour-primary-light-shades;
+    margin: 0 2rem 1rem 2rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    &__divitions{
+        width: 20%
+    }
+    &__content{
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        // padding: 0.75rem 0;
+        font-size: 1rem;
+        display: flex;  
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+        font-size: 0.6rem;
+        @include tablet{
+            font-size: 1rem;
+        }
+        @include desktop{
+            font-size: 1.2rem;
+        }
+    }
+    &__buttons{
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__like{
+        max-height: 0.8rem;
+        @include tablet{
+            max-height: 1rem;
+        }
+    }
+    &__delete{
+        background-color: $color-primary-important;
+        color: $colour-primary-light-shades;
+        padding: 0.25rem;
+        border-radius: 1rem;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        font-size: 0.6rem;
+        border: 1px solid #999999;
+        @include tablet{
+            padding: 0.2rem 1rem;
+            font-size: 0.8rem;
+        }
+        @include desktop{
+            font-size: 1.3rem;
+        }
+        &:hover{
+            background-color: $colour-primary-light-shades;
+            color: $colour-primary-light-accent;
+        }
+        &:disabled{
+            border: 1px solid #999999;
+            background-color: #cccccc;
+            color: #666666;
+        }
+    }
+    &__modal{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        align-content: space-between;
+        width: 15rem;
+        height: 8rem;
+        background-color: $colour-primary-light-shades;
+        border: 2px solid #000;
+        box-shadow: 24;
+        p: 4;
+    }
+}
+
