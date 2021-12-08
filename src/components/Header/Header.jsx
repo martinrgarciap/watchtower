@@ -39,11 +39,11 @@ export default class Header extends Component {
               EMERGENCY
             </Link>
           </li>
-          <li className="header__list-item">
+          {/* <li className="header__list-item">
             <button className="header__logout" onClick={this.handleLogOut}>
               Log Out
             </button>
-          </li>
+          </li> */}
         </ul>
       </div>
     );
