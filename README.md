@@ -7,9 +7,11 @@
 
 Follow these steps to run a local instance of the frontend of Watchtower:  
 (You'll need node, npm, and a mongodb account already installed.)
-the backend is on a seperate github repository with its own set of instructions.
-It would be easier to start with the backend instructions and then do these instructions
-backend: https://github.com/martinrgarciap/watchtowerserver
+
+The backend is on a seperate github repository with its own set of instructions.
+It would be easier to start with the backend instructions and then do the front end instructions
+
+Backend: https://github.com/martinrgarciap/watchtowerserver
 
 1. Clone or download this repo.
 #### Set up the frontend
